@@ -75,7 +75,7 @@ class PoolComponent extends React.Component<Pool> {
 
             <table>
                 {this.state.bouts.map((bout) => 
-                    <BoutComponent competitorA={bout.competitorA} competitorB={bout.competitorB} scoreA={bout.scoreA} scoreB={bout.scoreB}/>
+                    <BoutComponent bout={bout}/>
                 )}
             </table>
 
