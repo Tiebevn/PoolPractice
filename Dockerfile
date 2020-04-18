@@ -1,7 +1,7 @@
 FROM node:12 as react-builder
 WORKDIR /usr/src/app
 COPY . .
-RUN npm builder
+RUN npm build
 
 
 FROM nginx:alpine
