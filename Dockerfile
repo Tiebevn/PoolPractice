@@ -1,7 +1,10 @@
 FROM node:12 as react-builder
 WORKDIR /usr/src/app
+COPY package.json .
+COPY package-lock.json .
+RUN npm install --production
 COPY . .
-RUN npm build
+RUN npm run build
 
 
 FROM nginx:alpine
