@@ -1,6 +1,7 @@
 export type Competitor = {
     firstName: string,
     lastName: string,
+    competitorID: number
 }
 
 export type Bout = {
