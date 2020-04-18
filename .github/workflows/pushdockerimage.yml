@@ -9,6 +9,7 @@ jobs:
     steps:
       - name: Check out the repo
         uses: actions/checkout@v2
+        
       - name: Push to Docker Hub
         uses: docker/build-push-action@v1
         with:
@@ -16,3 +17,7 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
           repository: tiebevn/poolpractice
           tag_with_ref: true
+
+      - name: Update production service
+        run: curl -X POST "http://projectweek.be:9000/api/webhooks/c5e6bd58-c32c-490c-bdd5-b659043f2fa6"
+        
