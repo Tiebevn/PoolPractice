@@ -56,11 +56,15 @@ class PoolComponent extends React.Component<Pool> {
                 </td>
                 
                 {this.state.competitors.map(fencer => {
-                    return(
-                       
-                            <td style={{width: 50}}></td>
-                        
+                    if(fencer === competitor) {
+                        return (
+                            <td style={{width: 50, background: 'black'}}></td> 
+                        )
+                    } else {
+                        return(                      
+                            <td style={{width: 50}}></td>                 
                     )
+                    }
                 })}
 
                 </tr>
