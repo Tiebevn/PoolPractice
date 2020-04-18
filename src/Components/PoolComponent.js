@@ -49,20 +49,29 @@ class PoolComponent extends React.Component<Pool> {
                 <th>{this.state.competitors.indexOf(competitor) + 1}</th>
             )}
             </tr>
-            {this.state.competitors.map(competitor => 
-                <tr>
-                <td>
+            {this.state.competitors.map(competitor => {
+                return (
+                <tr><td>
                     <CompetitorComponent firstName={competitor.firstName} lastName={competitor.lastName}/>
                 </td>
+                
+                {this.state.competitors.map(fencer => {
+                    return(
+                        <td style={{width: 50}}></td>
+                    )
+                })}
+
                 </tr>
-            )}
+                )
+            })}
 
             </table>
+            <br />
 
             <table>
-            {this.state.bouts.map((bout) => 
-                <BoutComponent competitorA={bout.competitorA} competitorB={bout.competitorB} scoreA={bout.scoreA} scoreB={bout.scoreB}/>
-            )}
+                {this.state.bouts.map((bout) => 
+                    <BoutComponent competitorA={bout.competitorA} competitorB={bout.competitorB} scoreA={bout.scoreA} scoreB={bout.scoreB}/>
+                )}
             </table>
 
             <table>

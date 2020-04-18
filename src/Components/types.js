@@ -8,5 +8,6 @@ export type Bout = {
     competitorB: Competitor,
     scoreA: number,
     scoreB: number,
+    winner: Competitor
 }
 
