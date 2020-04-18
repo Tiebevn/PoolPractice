@@ -31,7 +31,6 @@ class PoolComponent extends React.Component<Pool> {
             return list
         })
         .then(list => {
-            console.log(list)
             this.setState({bouts: createBouts(list)})
         })
 
