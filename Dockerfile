@@ -1,7 +1,11 @@
-FROM node:12
+FROM node:12 as react-builder
 WORKDIR /usr/src/app
-COPY package*.json ./
-RUN npm install
 COPY . .
-EXPOSE 8080
-CMD ["npm", "start"]
+RUN npm builder
+
+
+FROM nginx:alpine
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+COPY --from=react-build /usr/src/app/build /usr/share/nginx/html
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
