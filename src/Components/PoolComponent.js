@@ -52,12 +52,14 @@ class PoolComponent extends React.Component<Pool> {
             {this.state.competitors.map(competitor => {
                 return (
                 <tr><td>
-                    <CompetitorComponent firstName={competitor.firstName} lastName={competitor.lastName}/>
+                    <CompetitorComponent competitor={competitor}/>
                 </td>
                 
                 {this.state.competitors.map(fencer => {
                     return(
-                        <td style={{width: 50}}></td>
+                       
+                            <td style={{width: 50}}></td>
+                        
                     )
                 })}
 

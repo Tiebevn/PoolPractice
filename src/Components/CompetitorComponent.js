@@ -6,7 +6,7 @@ class CompetitorComponent extends React.Component<Competitor> {
     render() {
         return (
             <div>
-                <p>{this.props.firstName} {this.props.lastName}</p>
+                <p>{this.props.competitor.firstName} {this.props.competitor.lastName}</p>
             </div>
         );
     }
