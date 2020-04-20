@@ -1,8 +1,8 @@
 import React from 'react'
 import {Pool} from './types'
-import CompetitorComponent from './CompetitorComponent'
+import PoolTableComponent from './PoolTableComponent'
 import createBouts from './CreateBouts'
-import BoutComponent from './BoutComponent'
+import BoutOverviewComponent from './BoutOverviewComponent'
 
 
 
@@ -13,6 +13,7 @@ class PoolComponent extends React.Component<Pool> {
         this.state = {
             competitors: [],
             bouts: [],
+            loading: true
         }
 
     }
@@ -27,77 +28,28 @@ class PoolComponent extends React.Component<Pool> {
             return list
         })
         .then(list => {
-            this.setState({competitors: list})
-            return list
+            this.setState({competitors: list, bouts: createBouts(list)})
         })
-        .then(list => {
-            this.setState({bouts: createBouts(list)})
-        })
-
+        .then(this.setState({loading: false}))
     }
 
 
 
     render() {
-        return(
+        console.log(this.state.loading)
+        if (this.state.loading) {
+            return(
+                <p>Loading</p>
+            )
+        } else  {
+            return(
             <div>
-            <table> 
-            <thead>
-            <tr>
-            <th>Name</th>
-            {this.state.competitors.map(competitor => 
-                <th>{this.state.competitors.indexOf(competitor) + 1}</th>
-            )}
-            </tr>
-            </thead>
-            <tbody>
-
-                {this.state.competitors.map(competitor => {
-                return (
-                <tr><td>
-                    <CompetitorComponent competitor={competitor} key={competitor.index}/>
-                </td>
-                
-                {this.state.competitors.map(fencer => {
-                    if(fencer === competitor) {
-                        return (
-                            <td style={{width: 50, background: 'black'}}></td> 
-                        )
-                    } else {
-                        return(                      
-                            <td style={{width: 50}}></td>                 
-                    )
-                    }
-                })}
-
-                </tr>
-                )
-            })}
-
-            </tbody>
-            
-
-            </table>
+            <PoolTableComponent competitors={this.state.competitors} />
             <br />
-
-            <table>
-            <thead>
-            </thead>
-            <tbody>
-                {this.state.bouts.map((bout) => 
-                    <BoutComponent bout={bout} index={this.state.bouts.indexOf(bout)} key={this.state.bouts.indexOf(bout)}/>
-                )}
-            </tbody>
-                
-            </table>
-
-            <table>
-            
-
-            
-            </table>
+            <BoutOverviewComponent bouts={this.state.bouts} />         
             </div>
         );
+        }
     }
 }
 
