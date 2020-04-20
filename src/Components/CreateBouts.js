@@ -1,10 +1,27 @@
 import {Competitor, Bout} from './types'
-import {boutOrder} from './Boutorder'
+import {boutOrder8, boutOrder7, boutOrder6} from './Boutorder'
 
 function createBouts(competitors: Array<Competitor>): Array<Bout> {
     var bouts = [];    
+    var order
 
-    boutOrder.map(mapItem =>
+    switch (competitors.length) {
+        case 6:
+            order = boutOrder6
+            break;
+        case 7:
+            order = boutOrder7
+            break;
+        
+        case 8:
+            order = boutOrder8
+            break;
+        default:
+            order = boutOrder7
+            break;
+    }
+
+    order.map(mapItem =>
         bouts.push(getRandomScores({competitorA: competitors[mapItem[0]-1], competitorB: competitors[mapItem[1] - 1], scoreA: -1, scoreB: -1, winner: null}))
     )
 

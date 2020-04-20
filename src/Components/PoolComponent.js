@@ -13,14 +13,15 @@ class PoolComponent extends React.Component<Pool> {
         this.state = {
             competitors: [],
             bouts: [],
-            loading: true
+            loading: true,
+            count: 7
         }
-
+    this.handleChange = this.handleChange.bind(this);
     }
     
     componentDidMount() {
         
-        fetch("https://randomuser.me/api/?results=8&nat=nl")
+        fetch("https://randomuser.me/api/?results="+this.state.count+"&nat=nl")
         .then(res => res.json())
         .then(data => {
             var list = [];
@@ -33,20 +34,25 @@ class PoolComponent extends React.Component<Pool> {
         .then(this.setState({loading: false}))
     }
 
+    handleChange(event) {
+    this.setState({count: event.target.value});
 
+    }
 
     render() {
-        console.log(this.state.loading)
         if (this.state.loading) {
             return(
-                <p>Loading</p>
+                <div>
+                    <h1>Loading...</h1>
+                </div>
             )
         } else  {
             return(
             <div>
-            <PoolTableComponent competitors={this.state.competitors} />
+            <input type="number" id="count" name="count" min="6" max="8" value={this.state.count} onChange={this.handleChange} />
+                <PoolTableComponent competitors={this.state.competitors} />
             <br />
-            <BoutOverviewComponent bouts={this.state.bouts} />         
+                <BoutOverviewComponent bouts={this.state.bouts} />         
             </div>
         );
         }
