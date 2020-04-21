@@ -34,9 +34,24 @@ class PoolComponent extends React.Component<Pool> {
         .then(this.setState({loading: false}))
     }
 
+    componentDidUpdate(prevProps, prevState) {
+        if(this.state.count !== prevState.count) {
+            fetch("https://randomuser.me/api/?results="+this.state.count+"&nat=nl")
+        .then(res => res.json())
+        .then(data => {
+            var list = [];
+            data.results.map(fencer => list.push({firstName: fencer.name.first, lastName: fencer.name.last, index: data.results.indexOf(fencer)+1}))
+            return list
+        })
+        .then(list => {
+            this.setState({competitors: list, bouts: createBouts(list)})
+        })
+        .then(this.setState({loading: false}))
+        }
+    }
+
     handleChange(event) {
     this.setState({count: event.target.value});
-
     }
 
     render() {

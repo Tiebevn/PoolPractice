@@ -24,11 +24,11 @@ class PoolTableComponent extends React.Component<Competitors> {
                 {this.props.competitors.map(opponent => {
                     if(opponent === competitor) {
                         return (
-                            <td style={{width: 50, background: 'black'}}></td> 
+                            <td style={{width: 50, background: 'black', height: 50}}></td> 
                         )
                     } else {
                         return(                      
-                            <td style={{width: 50}}></td>                 
+                            <td style={{width: 50, height: 50}}></td>                 
                     )
                     }
                 })}

@@ -5,7 +5,7 @@ import {Competitor} from './types'
 class CompetitorComponent extends React.Component<Competitor> {
     render() {
         return (
-                <p>({this.props.competitor.index}) {this.props.competitor.firstName} {this.props.competitor.lastName}</p>
+                <span>({this.props.competitor.index}) {this.props.competitor.firstName} {this.props.competitor.lastName}</span>
         );
     }
 }
