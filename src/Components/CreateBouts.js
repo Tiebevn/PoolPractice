@@ -1,4 +1,4 @@
-import {Competitor, Bout} from './types'
+import {Competitor, Bout} from '../types/types'
 import {boutOrder8, boutOrder7, boutOrder6} from './Boutorder'
 
 function createBouts(competitors: Array<Competitor>): Array<Bout> {
