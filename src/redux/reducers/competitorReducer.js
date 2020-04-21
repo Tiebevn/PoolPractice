@@ -4,7 +4,7 @@ import {Action} from '../../types/types'
 
 const initialState = {
     list: [],
-    isFetching: false,
+    isFetching: true,
     error: null
 }
 

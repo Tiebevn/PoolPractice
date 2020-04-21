@@ -1,10 +1,11 @@
 import {Competitor, Bout} from '../types/types'
-import {boutOrder8, boutOrder7, boutOrder6} from './Boutorder'
+import {boutOrder8, boutOrder7, boutOrder6} from '../data/Boutorder'
+import {addBouts} from '../redux/actions/boutActions'
+
 
 function createBouts(competitors: Array<Competitor>): Array<Bout> {
     var bouts = [];    
     var order
-
     switch (competitors.length) {
         case 6:
             order = boutOrder6
@@ -25,8 +26,9 @@ function createBouts(competitors: Array<Competitor>): Array<Bout> {
         bouts.push(getRandomScores({competitorA: competitors[mapItem[0]-1], competitorB: competitors[mapItem[1] - 1], scoreA: -1, scoreB: -1, winner: null}))
     )
 
-
-    return bouts
+    return function (dispatch) {
+        dispatch(addBouts(bouts))
+    }
     
 }
 

@@ -1,6 +1,7 @@
 import {getDataPending, getDataSuccess, getDataError} from '../redux/actions/dataActions'
 
 function getCompetitors()  {
+      console.log('Loading')
       return function (dispatch) {
           dispatch(getDataPending())
           return fetch("https://randomuser.me/api/?results=7&nat=nl")

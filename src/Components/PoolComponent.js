@@ -3,6 +3,7 @@ import {Pool} from '../types/types'
 import PoolTableComponent from './PoolTableComponent'
 import getCompetitors from '../api/getUsers'
 import { connect } from "react-redux"
+import BoutOverviewComponent from './BoutOverviewComponent'
 
 
 
@@ -12,6 +13,7 @@ class PoolComponent extends React.Component<Pool> {
 
     componentDidMount() {
         this.props.getCompetitors()
+        
     }
     render() {
         if (this.props.isLoading) {
@@ -24,6 +26,7 @@ class PoolComponent extends React.Component<Pool> {
             return(
             <div>
                 <PoolTableComponent />
+                <BoutOverviewComponent />
             </div>
         );
         }
@@ -36,7 +39,7 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = {
-    getCompetitors
+    getCompetitors,
 }
 
 

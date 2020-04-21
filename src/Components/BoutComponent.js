@@ -2,7 +2,6 @@ import * as React from 'react'
 import {Bout} from '../types/types'
 import './../Styles/BoutComponent.css'
 import CompetitorComponent from './CompetitorComponent'
-import { connect } from "react-redux"
 
 class BoutComponent extends React.Component<Bout> {
     render() {
