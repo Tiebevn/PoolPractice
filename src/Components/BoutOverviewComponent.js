@@ -1,8 +1,15 @@
 import * as React from 'react'
 import BoutComponent from './BoutComponent'
+import { connect } from "react-redux"
+import createBouts from '../api/CreateBouts'
+
 
 
 class BoutOverviewComponent extends React.Component<Bouts> {
+    componentDidMount() {
+        this.props.createBouts(this.props.competitors)
+     }
+
     render() {
         return (
             <table>
@@ -25,4 +32,13 @@ class BoutOverviewComponent extends React.Component<Bouts> {
     }
 }
 
-export default BoutOverviewComponent
+
+const mapStateToProps = state => {
+    return {bouts: state.bouts.bouts, competitors: state.competitors.list}
+}
+
+const mapDispatchToProps = {
+    createBouts
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(BoutOverviewComponent)

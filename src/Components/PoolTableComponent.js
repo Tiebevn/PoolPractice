@@ -1,7 +1,10 @@
 import * as React from 'react'
 import CompetitorComponent from './CompetitorComponent'
+import { connect } from "react-redux"
+
 
 class PoolTableComponent extends React.Component<Competitors> {
+
     render() {
         return(
             <table> 
@@ -17,6 +20,7 @@ class PoolTableComponent extends React.Component<Competitors> {
 
                 {this.props.competitors.map(competitor => {
                 return (
+                    
                 <tr><td>
                     <CompetitorComponent competitor={competitor} key={competitor.index}/>
                 </td>
@@ -43,5 +47,7 @@ class PoolTableComponent extends React.Component<Competitors> {
     }
 }
 
-
-export default PoolTableComponent
+const mapStateToProps = state => {
+    return {competitors: state.competitors.list}
+}
+export default connect(mapStateToProps)(PoolTableComponent)

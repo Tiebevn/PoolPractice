@@ -1,6 +1,6 @@
 import * as React from 'react'
-import {Bout} from './types'
-import './Styles/BoutComponent.css'
+import {Bout} from '../types/types'
+import './../Styles/BoutComponent.css'
 import CompetitorComponent from './CompetitorComponent'
 
 class BoutComponent extends React.Component<Bout> {
