@@ -16,6 +16,9 @@ function boutReducer(state = initialState, action: Action) {
             bouts: action.payload
         }
     }
+    if (action.type === actions.UPDATE_BOUT) {
+        
+    }
 
     return state
 }

@@ -26,6 +26,7 @@ class PoolComponent extends React.Component<Pool> {
             return(
             <div>
                 <PoolTableComponent />
+                <br />
                 <BoutOverviewComponent />
             </div>
         );

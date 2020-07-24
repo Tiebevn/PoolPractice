@@ -1,4 +1,5 @@
 import * as React from 'react'
+import setAnwerScore from '../api/setAnswerScore'
 import CompetitorComponent from './CompetitorComponent'
 import { connect } from "react-redux"
 
@@ -32,7 +33,13 @@ class PoolTableComponent extends React.Component<Competitors> {
                         )
                     } else {
                         return(                      
-                            <td style={{width: 50, height: 50}}></td>                 
+                            <td style={{width: 50, height: 50}}>
+                                <input 
+                                type="text" 
+                                style={{width: 50, height: 50, outline: 0, border: "none"}}
+                                onChange={e => setAnwerScore({competitorA: competitor, competitorB: opponent, score: e.target.value})}
+                                />
+                            </td>                 
                     )
                     }
                 })}

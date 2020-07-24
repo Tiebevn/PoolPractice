@@ -9,7 +9,10 @@ export type Bout = {
     competitorB: Competitor,
     scoreA: number,
     scoreB: number,
-    winner: Competitor
+    winner: Competitor,
+    answerA: number,
+    answerB: number,
+    answerWinner: Competitor,
 }
 
 export type Action = {
