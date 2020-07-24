@@ -8,7 +8,7 @@ const initialState = {
 
 }
 
-function boutReducer(state = initialState, action: Action) {
+function boutReducer(state = initialState, action) {
     
     if (action.type === actions.ADD_BOUTS) {
         return {
@@ -16,9 +16,7 @@ function boutReducer(state = initialState, action: Action) {
             bouts: action.payload
         }
     }
-    if (action.type === actions.UPDATE_BOUT) {
-        
-    }
+
 
     return state
 }

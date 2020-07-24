@@ -9,7 +9,7 @@ import BoutOverviewComponent from './BoutOverviewComponent'
 
 
 
-class PoolComponent extends React.Component<Pool> {
+class PoolComponent extends React.Component {
 
     componentDidMount() {
         this.props.getCompetitors()

@@ -8,7 +8,7 @@ const initialState = {
     error: null
 }
 
-function competitorReducer(state = initialState, action: Action) {
+function competitorReducer(state = initialState, action) {
     
     if (action.type === actions.GET_DATA_PENDING) {
         return {
@@ -20,14 +20,16 @@ function competitorReducer(state = initialState, action: Action) {
         return {
             ...state,
             isFetching: false,
-            list: action.payload
+            //list: action.payload
+            list: require('../../data/mockdata.json')
         }
     }
     if (action.type === actions.GET_DATA_ERROR) {
         return {
             ...state,
             isFetching: false,
-            error: action.error
+            error: action.error,
+            list: require('../../data/mockdata.json')
         }
     }
     return state
