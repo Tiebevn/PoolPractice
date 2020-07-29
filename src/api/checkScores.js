@@ -3,7 +3,7 @@ import {addBouts} from '../redux/actions/boutActions'
 
 function checkScores() {
 
-    let bouts = store.getState()['bouts']['bouts']
+    let bouts = store.getState()['bouts']['list']
     console.log(bouts)
     bouts.forEach(bout => {  
         if (bout.scoreA === bout.answerScoreA && bout.scoreB === bout.answerScoreB && bout.winner === bout.answerWinner) {

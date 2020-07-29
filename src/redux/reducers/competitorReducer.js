@@ -1,5 +1,4 @@
 import * as actions from '../constants/index'
-import {Action} from '../../types/types'
 
 
 const initialState = {
@@ -20,8 +19,8 @@ function competitorReducer(state = initialState, action) {
         return {
             ...state,
             isFetching: false,
-            //list: action.payload
-            list: require('../../data/mockdata.json')
+            list: action.payload
+
         }
     }
     if (action.type === actions.GET_DATA_ERROR) {
@@ -29,7 +28,6 @@ function competitorReducer(state = initialState, action) {
             ...state,
             isFetching: false,
             error: action.error,
-            list: require('../../data/mockdata.json')
         }
     }
     return state

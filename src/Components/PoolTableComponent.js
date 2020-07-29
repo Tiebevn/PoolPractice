@@ -4,7 +4,7 @@ import CompetitorComponent from './CompetitorComponent'
 import { connect } from "react-redux"
 
 
-class PoolTableComponent extends React.Component<Competitors> {
+class PoolTableComponent extends React.Component {
 
     render() {
         return(

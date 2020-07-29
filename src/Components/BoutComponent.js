@@ -33,7 +33,7 @@ class BoutComponent extends React.Component {
 }
 
 const mapStateToProps = state => {
-    return {bouts: state.bouts.bouts}
+    return {bouts: state.bouts.list}
 }
 
  export default connect(mapStateToProps)(BoutComponent)

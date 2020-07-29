@@ -1,14 +1,18 @@
-import {getDataPending, getDataSuccess, getDataError} from '../redux/actions/dataActions'
+import {getDataSuccess} from '../redux/actions/dataActions'
+import getRandomNumbers from './getRandomNumbers'
+import userData from '../data/mockdata'
 
 function getCompetitors()  {
       console.log('Loading')
+      var data = []
+
+      var numbers = getRandomNumbers()
+      numbers.forEach(number => {
+        data.push(userData[number])
+      })
+      
       return function (dispatch) {
-          dispatch(getDataPending())
-          return fetch("https://randomuser.me/api/?results=7&nat=nl")
-        .then(res => res.json(), error => dispatch(getDataError(error)))
-        .then(data => {
-            dispatch(getDataSuccess(data.results))
-        })
+            dispatch(getDataSuccess(data))
       }
 
 

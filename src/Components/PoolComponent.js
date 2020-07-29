@@ -4,16 +4,20 @@ import getCompetitors from '../api/getUsers'
 import { connect } from "react-redux"
 import BoutOverviewComponent from './BoutOverviewComponent'
 import checkScores from '../api/checkScores'
+import createBouts from '../api/CreateBouts'
+
 
 
 class PoolComponent extends React.Component {
 
-    componentDidMount() {
-        this.props.getCompetitors()
+    async componentDidMount() {
+        
+            await this.props.getCompetitors()
+            this.props.createBouts(this.props.competitors)
         
     }
     render() {
-        if (this.props.isLoading) {
+        if (this.props.competitorsLoading || this.props.boutsLoading) {
             return(
                 <div>
                     <h1>Loading...</h1>
@@ -35,11 +39,11 @@ class PoolComponent extends React.Component {
 
 
 const mapStateToProps = state => {
-    return {isLoading: state.competitors.isFetching}
+    return {competitorsLoading: state.competitors.isFetching, competitors: state.competitors.list, boutsLoading: state.bouts.isLoading}
 }
 
 const mapDispatchToProps = {
-    getCompetitors, checkScores
+    getCompetitors, checkScores, createBouts
 }
 
 

@@ -6,9 +6,7 @@ import createBouts from '../api/CreateBouts'
 
 
 class BoutOverviewComponent extends React.Component {
-    componentDidMount() {
-        this.props.createBouts(this.props.competitors)
-     }
+    
 
     render() {
         return (
@@ -35,11 +33,9 @@ class BoutOverviewComponent extends React.Component {
 
 
 const mapStateToProps = state => {
-    return {bouts: state.bouts.bouts, competitors: state.competitors.list}
+    return {bouts: state.bouts.list, competitors: state.competitors.list}
 }
 
-const mapDispatchToProps = {
-    createBouts
-}
 
-export default connect(mapStateToProps, mapDispatchToProps)(BoutOverviewComponent)
+
+export default connect(mapStateToProps)(BoutOverviewComponent)

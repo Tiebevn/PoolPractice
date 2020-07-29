@@ -3,7 +3,8 @@ import {Action} from '../../types/types'
 
 
 const initialState = {
-    bouts: [],
+    list: [],
+    isLoading: true
 
 
 }
@@ -13,7 +14,8 @@ function boutReducer(state = initialState, action) {
     if (action.type === actions.ADD_BOUTS) {
         return {
             ...state,
-            bouts: action.payload
+            list: action.payload,
+            isLoading: false
         }
     }
 

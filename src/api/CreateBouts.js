@@ -33,7 +33,6 @@ function createBouts(competitors) {
                                     correct: false,
                                     id: order.indexOf(mapItem)+1}))
     )
-            console.log(bouts)
     return function (dispatch) {
         dispatch(addBouts(bouts))
     }

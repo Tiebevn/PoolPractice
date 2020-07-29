@@ -4,7 +4,7 @@ import {addBouts} from '../redux/actions/boutActions'
 
 export default function SetAnwerScore(answer){
     let bouts = store.getState()['bouts']
-    bouts.bouts.forEach(bout => {
+    bouts.list.forEach(bout => {
         if (bout.competitorA === answer.competitorA && bout.competitorB === answer.competitorB) {
             bout = setScore(false, answer, bout)
             check(bout)
