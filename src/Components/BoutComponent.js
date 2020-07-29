@@ -1,26 +1,29 @@
 import * as React from 'react'
-import {Bout} from '../types/types'
+import { connect } from "react-redux"
 import './../Styles/BoutComponent.css'
 import CompetitorComponent from './CompetitorComponent'
 
-class BoutComponent extends React.Component<Bout> {
+class BoutComponent extends React.Component {
     render() {
-        if (this.props.bout.winner === this.props.bout.competitorA) {
+        let bout = this.props.bouts[this.props.index -1]
+        if (bout.winner === bout.competitorA) {
             return(
             <tr>
-                <td>{this.props.index}</td>
-                <td><b><CompetitorComponent competitor={this.props.bout.competitorA}/></b></td>
-                <td>{this.props.bout.scoreA}-{this.props.bout.scoreB}</td>
-                <td><CompetitorComponent competitor={this.props.bout.competitorB}/></td>
+                <td>{bout.id}</td>
+                <td><b><CompetitorComponent competitor={bout.competitorA}/></b></td>
+                <td>{bout.scoreA}-{bout.scoreB}</td>
+                <td><CompetitorComponent competitor={bout.competitorB}/></td>
+                <td>{bout.correct}</td>
             </tr>
         )
         } else {
             return(
             <tr>
-                <td>{this.props.index}</td>
-                <td><CompetitorComponent competitor={this.props.bout.competitorA}/></td>
-                <td>{this.props.bout.scoreA}-{this.props.bout.scoreB}</td>
-                <td><b><CompetitorComponent competitor={this.props.bout.competitorB}/></b></td>
+                <td>{bout.id}</td>
+                <td><CompetitorComponent competitor={bout.competitorA}/></td>
+                <td>{bout.scoreA}-{bout.scoreB}</td>
+                <td><b><CompetitorComponent competitor={bout.competitorB}/></b></td>
+                <td>{bout.correct}</td>
             </tr>
         )
         }
@@ -29,4 +32,8 @@ class BoutComponent extends React.Component<Bout> {
     }
 }
 
- export default BoutComponent
+const mapStateToProps = state => {
+    return {bouts: state.bouts.bouts}
+}
+
+ export default connect(mapStateToProps)(BoutComponent)

@@ -1,12 +1,9 @@
 import React from 'react'
-import {Pool} from '../types/types'
 import PoolTableComponent from './PoolTableComponent'
 import getCompetitors from '../api/getUsers'
 import { connect } from "react-redux"
 import BoutOverviewComponent from './BoutOverviewComponent'
-
-
-
+import checkScores from '../api/checkScores'
 
 
 class PoolComponent extends React.Component {
@@ -28,6 +25,8 @@ class PoolComponent extends React.Component {
                 <PoolTableComponent />
                 <br />
                 <BoutOverviewComponent />
+                <br />
+                <button onClick={this.props.checkScores}>Check scores</button>
             </div>
         );
         }
@@ -40,7 +39,7 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = {
-    getCompetitors,
+    getCompetitors, checkScores
 }
 
 

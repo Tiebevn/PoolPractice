@@ -1,9 +1,8 @@
-import {Competitor, Bout} from '../types/types'
 import {boutOrder8, boutOrder7, boutOrder6} from '../data/Boutorder'
 import {addBouts} from '../redux/actions/boutActions'
 
 
-function createBouts(competitors: Array<Competitor>): Array<Bout> {
+function createBouts(competitors) {
     var bouts = [];    
     var order
     switch (competitors.length) {
@@ -23,16 +22,25 @@ function createBouts(competitors: Array<Competitor>): Array<Bout> {
     }
 
     order.map(mapItem =>
-        bouts.push(getRandomScores({competitorA: competitors[mapItem[0]-1], competitorB: competitors[mapItem[1] - 1], scoreA: -1, scoreB: -1, winner: null}))
+        bouts.push(getRandomScores({competitorA: competitors[mapItem[0]-1],
+                                    competitorB: competitors[mapItem[1] - 1], 
+                                    scoreA: -1, 
+                                    scoreB: -1, 
+                                    winner: null,
+                                    answerScoreA: -1,
+                                    answerScoreB: -1,
+                                    answerWinner: null,
+                                    correct: false,
+                                    id: order.indexOf(mapItem)+1}))
     )
-
+            console.log(bouts)
     return function (dispatch) {
         dispatch(addBouts(bouts))
     }
     
 }
 
-function getRandomScores(bout: Bout): Bout {
+function getRandomScores(bout) {
 
     // We assume 80% of all bouts are won 5-something, and the rest is won with a score less than 5 or a priority
     while (bout.scoreA < 0 && bout.scoreB < 0) {
