@@ -1,16 +1,11 @@
 import * as React from 'react'
 import BoutComponent from './BoutComponent'
-import { connect } from "react-redux"
-import createBouts from '../api/CreateBouts'
 
 
 
-class BoutOverviewComponent extends React.Component {
-    
 
-    render() {
-        return (
-            <table>
+const BoutOverviewComponent = ({list}) => (
+    <table>
                 <thead>
                     <tr>
                         <th>Bout number</th>
@@ -21,21 +16,15 @@ class BoutOverviewComponent extends React.Component {
                     </tr>
                 </thead>
                 <tbody>
-                    {this.props.bouts.map((bout) => 
-                        <BoutComponent index={bout.id} key={bout.id}/>
+                    {list.map((bout) => 
+                        <BoutComponent {...bout} key={bout.id}/>
                     )}
                 </tbody>
                 
             </table>
-        );
-    }
-}
-
-
-const mapStateToProps = state => {
-    return {bouts: state.bouts.list, competitors: state.competitors.list}
-}
+)
 
 
 
-export default connect(mapStateToProps)(BoutOverviewComponent)
+
+export default BoutOverviewComponent

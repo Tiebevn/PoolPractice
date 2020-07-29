@@ -3,14 +3,16 @@ import getRandomNumbers from './getRandomNumbers'
 import userData from '../data/mockdata'
 
 function getCompetitors()  {
-      console.log('Loading')
       var data = []
-
+      var id = 1
       var numbers = getRandomNumbers()
       numbers.forEach(number => {
+        userData[number].id = id
         data.push(userData[number])
+        id++
       })
-      
+
+
       return function (dispatch) {
             dispatch(getDataSuccess(data))
       }

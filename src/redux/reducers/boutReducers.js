@@ -1,5 +1,5 @@
 import * as actions from '../constants/index'
-import {Action} from '../../types/types'
+
 
 
 const initialState = {

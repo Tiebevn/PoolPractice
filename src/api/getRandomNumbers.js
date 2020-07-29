@@ -9,7 +9,7 @@ export default function getRandomNumbers() {
 
     while (unique_random_numbers.length < limit) {
         var random_number = Math.floor(Math.random()*(upper_bound - lower_bound) + lower_bound);
-        if (unique_random_numbers.indexOf(random_number) == -1) { 
+        if (unique_random_numbers.indexOf(random_number) === -1) { 
             // Yay! new random number
             unique_random_numbers.push( random_number )
         }

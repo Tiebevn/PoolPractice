@@ -30,7 +30,7 @@ function createBouts(competitors) {
                                     answerScoreA: -1,
                                     answerScoreB: -1,
                                     answerWinner: null,
-                                    correct: false,
+                                    correct: "NOK",
                                     id: order.indexOf(mapItem)+1}))
     )
     return function (dispatch) {

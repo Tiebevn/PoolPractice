@@ -7,11 +7,9 @@ export default function SetAnwerScore(answer){
     bouts.list.forEach(bout => {
         if (bout.competitorA === answer.competitorA && bout.competitorB === answer.competitorB) {
             bout = setScore(false, answer, bout)
-            check(bout)
         } 
         if (bout.competitorA === answer.competitorB && bout.competitorB === answer.competitorA) {
             bout = setScore(true, answer, bout)
-            check(bout)
         }
 
         return function (dispatch) {
@@ -21,9 +19,6 @@ export default function SetAnwerScore(answer){
     });
 }
 
-function check(bout) {
-    if (bout.scoreA === bout.answerScoreA && bout.scoreB === bout.answerScoreB && bout.winner === bout.answerWinner) console.log("You're right")
-}
 
 function setScore(crossed, answer, bout) {
     // Parse the score to integer, and swap if necessary

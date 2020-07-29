@@ -28,7 +28,7 @@ class PoolComponent extends React.Component {
             <div>
                 <PoolTableComponent />
                 <br />
-                <BoutOverviewComponent />
+                <BoutOverviewComponent {...this.props.bouts}/>
                 <br />
                 <button onClick={this.props.checkScores}>Check scores</button>
             </div>
@@ -39,7 +39,7 @@ class PoolComponent extends React.Component {
 
 
 const mapStateToProps = state => {
-    return {competitorsLoading: state.competitors.isFetching, competitors: state.competitors.list, boutsLoading: state.bouts.isLoading}
+    return {competitorsLoading: state.competitors.isFetching, competitors: state.competitors.list, boutsLoading: state.bouts.isLoading, bouts: state.bouts}
 }
 
 const mapDispatchToProps = {
