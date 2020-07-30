@@ -27,9 +27,9 @@ function createBouts(competitors) {
                                     scoreA: -1, 
                                     scoreB: -1, 
                                     winner: null,
-                                    answerScoreA: -1,
-                                    answerScoreB: -1,
-                                    answerWinner: null,
+                                    answerScoreA: "-1",
+                                    answerScoreB: "-1",
+                                    answerWinner: "null",
                                     correct: "NOK",
                                     id: order.indexOf(mapItem)+1}))
     )

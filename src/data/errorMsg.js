@@ -1,0 +1,5 @@
+export const INVALID_SCORE = "An invalid score was entered"
+export const D_IN_SCORE = "A score can never contain a 'D' in the new notation"
+export const V_IN_MAXBOUT = "When the score of 5 is reached, we indicate this with a V, not with V5"
+export const V_MISSING_ON_TIE = "When the scores are tied, a V is required to make out the winner"
+export const V_IN_NON_TIED_BOUT = "When the scores are not tied, the winner is determined by the highest score, so no V is required"

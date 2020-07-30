@@ -23,32 +23,12 @@ export default function SetAnwerScore(answer){
 function setScore(crossed, answer, bout) {
     // Parse the score to integer, and swap if necessary
     if (crossed) {
-        bout.answerScoreB = parseScore(answer.score)
+        bout.answerScoreB = answer.score
     } else {
-        bout.answerScoreA = parseScore(answer.score)
+        bout.answerScoreA = answer.score
     }
 
-    // If the scores are tied a winner should be decided by a V in the score
-    if (answer.score.includes("V") || answer.score.includes("v")) {
-        if (crossed) {
-            bout.answerWinner = answer.competitorB
-        } else {
-            bout.answerWinner = answer.competitorA
-        }
-    }
-    // Otherwise, the heighest scoring fencer wins
-    if (bout.answerScoreA > bout.answerScoreB) {
-        bout.answerWinner = bout.competitorA
-    }
-    if (bout.answerScoreA < bout.answerScoreB) {
-        bout.answerWinner = bout.competitorB
-    }
-
+    
     return bout
 }
 
-function parseScore(score) {
-    if (score === "V" || score === "v") return 5
-    if (score.includes("V") || score.includes("v")) return parseInt(score.slice(score.length - 1))
-    return parseInt(score)
-}

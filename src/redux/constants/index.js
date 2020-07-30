@@ -6,3 +6,5 @@ export const GET_DATA_ERROR = "GET_DATA_ERROR"
 
 export const ADD_BOUTS = "ADD_BOUTS"
 export const UPDATE_BOUT= "UPDATE_BOUT"
+
+export const ADD_ERROR = "ADD_ERROR"

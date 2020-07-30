@@ -21,3 +21,8 @@ export type Action = {
     error?: any
 }
 
+export type Error = {
+    bout: number,
+    message: string
+}
+
