@@ -38,15 +38,16 @@ function checkScores() {
         if (parsedA.number > parsedB.number) bout.answerWinner = bout.competitorA
         if (parsedA.number < parsedB.number) bout.answerWinner = bout.competitorB
 
-        if (bout.scoreA === parsedA.number && bout.scoreB === parsedB.number && bout.winner === bout.answerWinner) {
+        if (bout.scoreA === parsedA.number && bout.scoreB === parsedB.number && bout.winner === bout.answerWinner && !parsedA.error.length > 0 && !parsedB.error.length > 0) {
             
                 bout.correct = "OK"
+                bout.error = ""
             
 
         }
 
          if (parsedA.error.length > 0 || parsedB.error.length > 0) {
-                bout.correct = parsedA.error + " - " + parsedB.error
+                bout.error = parsedA.error + " - " + parsedB.error
             
             }
     });

@@ -6,6 +6,7 @@ import BoutOverviewComponent from './BoutOverviewComponent'
 import checkScores from '../api/checkScores'
 import createBouts from '../api/CreateBouts'
 import {changeCapacity} from '../redux/actions/competitorActions'
+import '../Styles/PoolComponent.css'
 
 
 
@@ -38,13 +39,16 @@ class PoolComponent extends React.Component {
             )
         } else  {
             return(
-            <div>
-                <input type="number" max="8" min="6" value={this.props.capacity} onChange={e => this.props.changeCapacity(parseInt(e.target.value))}/>
-                <PoolTableComponent />
-                <br />
-                <BoutOverviewComponent {...this.props.bouts}/>
-                <br />
-                <button onClick={this.props.checkScores}>Check scores</button>
+            <div class='root'>
+                <div class='left-container'>
+                    <input type="number" max="8" min="6" value={this.props.capacity} onChange={e => this.props.changeCapacity(parseInt(e.target.value))}/>
+                    <PoolTableComponent />
+                    <button onClick={this.props.checkScores}>Check scores</button>
+                </div>
+                <div class='right-container'>
+                    <BoutOverviewComponent {...this.props.bouts}/>
+                    
+                </div>
             </div>
         );
         }

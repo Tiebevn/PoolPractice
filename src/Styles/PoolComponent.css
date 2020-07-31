@@ -1,0 +1,12 @@
+.root {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-top: 10px;
+    
+}
+
+.left-container {
+    display: flex;
+    flex-direction: column;
+}
