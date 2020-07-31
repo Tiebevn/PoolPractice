@@ -47,7 +47,12 @@ class PoolComponent extends React.Component {
                 </div>
                 <div class='right-container'>
                     <BoutOverviewComponent {...this.props.bouts}/>
-                    
+                    <div>
+                        <h2>Pool Practice</h2>
+                        <h4>How it works</h4>
+                        <p>Using the data on the right side, fill in the pool sheet. The bold names in the table indicate the winner (in case of a tie).</p>
+                        <p>When you are finished click 'Check Scores' to correct the sheet. In the last column of the data sheet, you can check your progress. If the bout is correctly entered in the pool sheet, it will display 'OK'. If you hover over a 'NOK', you will also be able to see the errors you made.</p>
+                    </div>
                 </div>
             </div>
         );

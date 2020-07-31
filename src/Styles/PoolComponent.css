@@ -2,11 +2,12 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding-top: 10px;
     
 }
 
-.left-container {
+.left-container, .right-container {
     display: flex;
     flex-direction: column;
+    margin: 10px
+
 }
