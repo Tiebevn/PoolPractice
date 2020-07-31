@@ -1,6 +1,6 @@
-export default function getRandomNumbers() {
-    var limit = 7,
-    amount = 7,
+export default function getRandomNumbers(capacity) {
+    var limit = capacity,
+    amount = capacity,
     lower_bound = 0,
     upper_bound = 99,
     unique_random_numbers = []

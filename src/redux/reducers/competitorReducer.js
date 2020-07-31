@@ -4,18 +4,14 @@ import * as actions from '../constants/index'
 const initialState = {
     list: [],
     isFetching: true,
-    error: null
+    error: null,
+    capacity: 6
 }
 
 function competitorReducer(state = initialState, action) {
     
-    if (action.type === actions.GET_DATA_PENDING) {
-        return {
-            ...state,
-            isFetching: true,
-        }
-    }
-    if (action.type === actions.GET_DATA_SUCCESS) {
+
+    if (action.type === actions.ADD_COMPETITORS) {
         return {
             ...state,
             isFetching: false,
@@ -23,13 +19,14 @@ function competitorReducer(state = initialState, action) {
 
         }
     }
-    if (action.type === actions.GET_DATA_ERROR) {
+
+    if (action.type === actions.CHANGE_CAPACITY) {
         return {
             ...state,
-            isFetching: false,
-            error: action.error,
+            capacity: action.payload
         }
     }
+
     return state
 }
 

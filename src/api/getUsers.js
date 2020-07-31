@@ -1,11 +1,11 @@
-import {getDataSuccess} from '../redux/actions/dataActions'
+import {addCompetitors} from '../redux/actions/competitorActions'
 import getRandomNumbers from './getRandomNumbers'
 import userData from '../data/mockdata'
 
-function getCompetitors()  {
+function getCompetitors(capacity)  {
       var data = []
       var id = 1
-      var numbers = getRandomNumbers()
+      var numbers = getRandomNumbers(capacity)
       numbers.forEach(number => {
         userData[number].id = id
         data.push(userData[number])
@@ -14,7 +14,7 @@ function getCompetitors()  {
 
 
       return function (dispatch) {
-            dispatch(getDataSuccess(data))
+            dispatch(addCompetitors(data))
       }
 
 
